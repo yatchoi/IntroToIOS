@@ -25,10 +25,10 @@ The following **optional** features are implemented:
 
 The following **additional** features are implemented:
 
-* [x] Keyboard is only initially visible of bill amount is unitialized from
-  a save
 * [x] User can change the number of people to split the bill with
-* [x] Light/Dark color scheme. This is saved between app closes
+* [x] Light/Dark color scheme is saved between app closes
+* [x] Keyboard is only initially visible of bill amount is uninitialized from
+  a save
 
 ## Video Walkthrough
 
