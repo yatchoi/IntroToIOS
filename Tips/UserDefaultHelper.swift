@@ -12,6 +12,7 @@ class UserDefaultHelper {
   static let DefaultTipMemoryKey = "default_tip_key"
   static let SavedAmountMemoryKey = "saved_amount_key"
   static let AmountLastSavedAtMemoryKey = "amount_last_saved_at_key"
+  static let SavedNumPeopleMemoryKey = "saved_num_people_key"
   static let IsColorSchemeDarkMemoryKey = "is_color_scheme_dark_key"
   
   static let SecondsToFlushSavedAmount = 10 * 60 // 10 minutes
@@ -62,6 +63,37 @@ class UserDefaultHelper {
   static func setSavedAmount(value: Double) {
     let defaults = NSUserDefaults.standardUserDefaults()
     defaults.setDouble(value, forKey: SavedAmountMemoryKey)
+    defaults.synchronize()
+  }
+  
+  static func getSavedNumPeople() -> Int {
+    let defaults = NSUserDefaults.standardUserDefaults()
+    
+    let amountLastSavedAt = defaults.objectForKey(AmountLastSavedAtMemoryKey)
+    
+    if (amountLastSavedAt == nil) {
+      return 1
+    }
+    
+    let flushTime = NSDate().dateByAddingTimeInterval(SecondsToFlushSavedAmount._bridgeToObjectiveC().doubleValue * -1)
+    
+    let compare = flushTime.compare(amountLastSavedAt as! NSDate)
+    if (compare == NSComparisonResult.OrderedDescending) {
+      return 1
+    }
+    
+    let numSavedPeople = defaults.integerForKey(SavedNumPeopleMemoryKey)
+    if numSavedPeople == 0 {
+      return 1
+    }
+    else {
+      return numSavedPeople
+    }
+  }
+  
+  static func setSavedNumPeople(value: Int) {
+    let defaults = NSUserDefaults.standardUserDefaults()
+    defaults.setInteger(value, forKey: SavedNumPeopleMemoryKey)
     defaults.synchronize()
   }
   

@@ -34,6 +34,7 @@ class ViewController: UIViewController {
     // Do any additional setup after loading the view, typically from a nib.
     
     initializeLabels()
+    initializeNumPeople()
     renderColors()
     
     // Only pop up the keyboard if amount not yet entered
@@ -65,6 +66,13 @@ class ViewController: UIViewController {
     tipLabel.text = "$0.00"
     totalLabel.text = "$0.00"
     finalTotalLabel.text = "$0.00"
+  }
+  
+  func initializeNumPeople() {
+    let savedNumPeople = UserDefaultHelper.getSavedNumPeople()
+    numPeople = savedNumPeople
+    numPeopleLabel.text = "\(numPeople)"
+    numPeopleStepper.value = numPeople._bridgeToObjectiveC().doubleValue
   }
   
   func renderColors() {
@@ -114,9 +122,10 @@ class ViewController: UIViewController {
     finalTotalLabel.text = String(format: "$%.2f", finalTotal)
   }
   
-  func saveAmount() {
+  func saveUserDefaultData() {
     print("saving \(billField.text!)")
     UserDefaultHelper.setSavedAmount(billField.text!._bridgeToObjectiveC().doubleValue)
+    UserDefaultHelper.setSavedNumPeople(numPeople)
   }
 
   @IBAction func onEditingChanged(sender: AnyObject) {

@@ -29,7 +29,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
     let navigationController = self.window?.rootViewController as! UINavigationController
     let viewController = navigationController.viewControllers[0] as! ViewController
-    viewController.saveAmount()
+    viewController.saveUserDefaultData()
     UserDefaultHelper.updateAmountLastSavedAt()
   }
 
@@ -45,7 +45,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     let navigationController = self.window?.rootViewController as! UINavigationController
     let viewController = navigationController.viewControllers[0] as! ViewController
-    viewController.saveAmount()
+    viewController.saveUserDefaultData()
     UserDefaultHelper.updateAmountLastSavedAt()
   }
 

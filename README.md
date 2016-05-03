@@ -27,6 +27,7 @@ The following **additional** features are implemented:
 
 * [x] User can change the number of people to split the bill with
 * [x] Light/Dark color scheme is saved between app closes
+* [x] Num people is saved between app closes
 * [x] Keyboard is only initially visible if bill amount is uninitialized from
   a save
 
