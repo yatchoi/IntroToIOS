@@ -18,6 +18,13 @@ class ViewController: UIViewController {
   @IBOutlet weak var numPeopleStepper: UIStepper!
   @IBOutlet weak var finalTotalLabel: UILabel!
   
+  
+  @IBOutlet weak var tipTitleLabel: UILabel!
+  @IBOutlet weak var peopleTitleLabel: UILabel!
+  @IBOutlet weak var billTotalTitleLabel: UILabel!
+  @IBOutlet weak var totalTitleLabel: UILabel!
+  @IBOutlet weak var separatorBar: UIView!
+  
   let TIP_PERCENTAGES = [0.18, 0.2, 0.22]
   
   var numPeople = 1
@@ -27,6 +34,7 @@ class ViewController: UIViewController {
     // Do any additional setup after loading the view, typically from a nib.
     
     initializeLabels()
+    renderColors()
     
     // Only pop up the keyboard if amount not yet entered
     if billField.text?._bridgeToObjectiveC().doubleValue == 0 {
@@ -39,6 +47,7 @@ class ViewController: UIViewController {
     
     tipSegmentedControl.selectedSegmentIndex = UserDefaultHelper.getDefaultTip()
     updateLabels()
+    renderColors()
   }
 
   override func didReceiveMemoryWarning() {
@@ -56,6 +65,40 @@ class ViewController: UIViewController {
     tipLabel.text = "$0.00"
     totalLabel.text = "$0.00"
     finalTotalLabel.text = "$0.00"
+  }
+  
+  func renderColors() {
+    let isDark = UserDefaultHelper.getIsColorSchemeDark()
+    if isDark {
+      self.view.backgroundColor = UIColor.blueColor()
+      self.view.tintColor = UIColor.whiteColor()
+      
+      billField.textColor = UIColor.whiteColor()
+      tipLabel.textColor = UIColor.whiteColor()
+      totalLabel.textColor = UIColor.whiteColor()
+      numPeopleLabel.textColor = UIColor.whiteColor()
+      finalTotalLabel.textColor = UIColor.whiteColor()
+      tipTitleLabel.textColor = UIColor.whiteColor()
+      peopleTitleLabel.textColor = UIColor.whiteColor()
+      billTotalTitleLabel.textColor = UIColor.whiteColor()
+      totalTitleLabel.textColor = UIColor.whiteColor()
+      separatorBar.backgroundColor = UIColor.whiteColor()
+    }
+    else {
+      self.view.backgroundColor = UIColor.whiteColor()
+      self.view.tintColor = UIColor.blueColor()
+      
+      billField.textColor = UIColor.blackColor()
+      tipLabel.textColor = UIColor.blackColor()
+      totalLabel.textColor = UIColor.blackColor()
+      numPeopleLabel.textColor = UIColor.blackColor()
+      finalTotalLabel.textColor = UIColor.blackColor()
+      tipTitleLabel.textColor = UIColor.blackColor()
+      peopleTitleLabel.textColor = UIColor.blackColor()
+      billTotalTitleLabel.textColor = UIColor.blackColor()
+      totalTitleLabel.textColor = UIColor.blackColor()
+      separatorBar.backgroundColor = UIColor.blackColor()
+    }
   }
   
   func updateLabels() {

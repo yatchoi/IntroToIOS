@@ -15,24 +15,26 @@ The following **required** functionality is complete:
 * [x] Settings page to change the default tip percentage.
 
 The following **optional** features are implemented:
-* [ ] UI animations
 * [x] Remembering the bill amount across app restarts (if <10mins)
-* [ ] Using locale-specific currency and currency thousands separators.
 * [x] Making sure the keyboard is always visible and the bill amount is always
   the first responder. This way the user doesn't have to tap anywhere to use
   this app. Just launch the app and start typing.
+* [x] Make a light/dark color scheme
+* [ ] Using locale-specific currency and currency thousands separators.
+* [ ] UI animations
 
 The following **additional** features are implemented:
 
 * [x] Keyboard is only initially visible of bill amount is unitialized from
   a save
 * [x] User can change the number of people to split the bill with
+* [x] Light/Dark color scheme. This is saved between app closes
 
 ## Video Walkthrough
 
 Here's a walkthrough of implemented user stories:
 
-<img src='http://i.imgur.com/yAdDzXm.gif' title='Video
+<img src='http://i.imgur.com/j2BZwgW.gif' title='Video
 Walkthrough' width='' alt='Video Walkthrough' />
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
@@ -41,6 +43,11 @@ GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
 Minor struggles with learning how to access ViewControllers from AppDelegate,
 understanding RootController and how NavigationController fits into that.
+
+For some reason, XCode started marking some errors in my SettingsViewController. It is saying that
+my UserDefaultHelper class is undefined, even though the code still runs perfectly and clicking
+through in the IDE takes me to the currect class. Maybe I accidentally messed up some configuration
+somewhere?
 
 ## License
 

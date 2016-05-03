@@ -12,6 +12,7 @@ class UserDefaultHelper {
   static let DefaultTipMemoryKey = "default_tip_key"
   static let SavedAmountMemoryKey = "saved_amount_key"
   static let AmountLastSavedAtMemoryKey = "amount_last_saved_at_key"
+  static let IsColorSchemeDarkMemoryKey = "is_color_scheme_dark_key"
   
   static let SecondsToFlushSavedAmount = 10 * 60 // 10 minutes
 
@@ -67,6 +68,17 @@ class UserDefaultHelper {
   static func updateAmountLastSavedAt() {
     let defaults = NSUserDefaults.standardUserDefaults()
     defaults.setObject(NSDate(), forKey: AmountLastSavedAtMemoryKey)
+    defaults.synchronize()
+  }
+  
+  static func getIsColorSchemeDark() -> Bool {
+    let defaults = NSUserDefaults.standardUserDefaults()
+    return defaults.boolForKey(IsColorSchemeDarkMemoryKey)
+  }
+  
+  static func setIsColorSchemeDark(value: Bool) {
+    let defaults = NSUserDefaults.standardUserDefaults()
+    defaults.setBool(value, forKey: IsColorSchemeDarkMemoryKey)
     defaults.synchronize()
   }
 

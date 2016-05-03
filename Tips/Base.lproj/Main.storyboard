@@ -75,18 +75,10 @@
                             <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minimumValue="1" maximumValue="100" id="hIn-0M-nOs">
                                 <rect key="frame" x="212" y="311" width="94" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="tintColor" red="0.50196081400000003" green="0.0" blue="0.25098040700000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <action selector="onNumPeopleChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="F2L-1P-CBf"/>
                                 </connections>
                             </stepper>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="9KX-5y-ifi">
-                                <rect key="frame" x="29" y="473" width="70" height="36"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$100.00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="bUk-oz-ltZ">
                                 <rect key="frame" x="132" y="473" width="168" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -104,8 +96,16 @@
                                     <action selector="onEditingChanged:" destination="BYZ-38-t0r" eventType="editingChanged" id="0fx-Yi-OPI"/>
                                 </connections>
                             </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="9KX-5y-ifi">
+                                <rect key="frame" x="29" y="473" width="70" height="36"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <gestureRecognizers/>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="oDq-qu-60H" appends="YES" id="QL5-nN-k8e"/>
@@ -120,12 +120,17 @@
                     </navigationItem>
                     <connections>
                         <outlet property="billField" destination="jEI-Xf-skE" id="FkC-59-FUh"/>
+                        <outlet property="billTotalTitleLabel" destination="Lml-u7-TZE" id="gsV-9k-gF1"/>
                         <outlet property="finalTotalLabel" destination="bUk-oz-ltZ" id="UYL-qd-QNM"/>
                         <outlet property="numPeopleLabel" destination="ZY9-qK-Jsc" id="5si-ny-R7f"/>
                         <outlet property="numPeopleStepper" destination="hIn-0M-nOs" id="Fws-km-vgK"/>
+                        <outlet property="peopleTitleLabel" destination="xnH-jr-Zqg" id="dUy-Bb-iNZ"/>
+                        <outlet property="separatorBar" destination="4Sb-b0-XPI" id="RMT-w4-FnO"/>
                         <outlet property="tipLabel" destination="8Iv-HN-sdu" id="bWm-5l-afj"/>
                         <outlet property="tipSegmentedControl" destination="zQw-X5-Po3" id="YfI-O9-HZx"/>
+                        <outlet property="tipTitleLabel" destination="YDz-eT-TNI" id="dCo-m4-Khn"/>
                         <outlet property="totalLabel" destination="w9m-gQ-fBl" id="yFQ-Dl-aKw"/>
+                        <outlet property="totalTitleLabel" destination="9KX-5y-ifi" id="60Z-ET-W38"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -172,12 +177,33 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="oCo-JT-V4l">
+                                <rect key="frame" x="33" y="332" width="170" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="Light"/>
+                                    <segment title="Dark"/>
+                                </segments>
+                                <connections>
+                                    <action selector="colorChanged:" destination="zZy-Y1-ET5" eventType="valueChanged" id="BFq-rj-f3e"/>
+                                </connections>
+                            </segmentedControl>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Color Scheme" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="uhf-J5-lei">
+                                <rect key="frame" x="33" y="291" width="108" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="HYL-7G-fmx"/>
                     <connections>
+                        <outlet property="colorLabel" destination="uhf-J5-lei" id="Fcb-fT-wdP"/>
+                        <outlet property="colorSchemeControl" destination="oCo-JT-V4l" id="7vh-yt-e2Z"/>
                         <outlet property="defaultTipControl" destination="5J4-pN-pBp" id="aFi-rK-idc"/>
+                        <outlet property="tipLabel" destination="9dQ-3e-VcQ" id="fcw-4s-1aD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9IB-J5-ON7" userLabel="First Responder" sceneMemberID="firstResponder"/>
