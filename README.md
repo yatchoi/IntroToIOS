@@ -1,6 +1,6 @@
-# Pre-work - Just The Tip
+# Pre-work - Tips
 
-Just The Tip is a tip calculator application for iOS.
+Tips is a tip calculator application for iOS.
 
 Submitted by: Yat Choi
 
